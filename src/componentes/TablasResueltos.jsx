@@ -3,13 +3,12 @@ import { GlobalContext } from "../context/GlobalContext"
 
 
 function TablasResueltos() {
-    const {dades, setDades} = useContext(GlobalContext)
-    console.log(dades)
+    const {dadesResueltos, setDadesResueltos} = useContext(GlobalContext)
     return (
       <>
 <tbody>
     {
-        dades.ticketsResueltos.map((element)=>{
+        dadesResueltos.map((element)=>{
             return(
                 <tr key={element.codigo}>
                     <td>{element.codigo}</td>
