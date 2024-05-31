@@ -6,7 +6,9 @@ import Registro from './vistas/Registro'
 import Login from './vistas/login'
 import { GlobalContextProvider } from './context/GlobalContext'
 
+
 function App() {
+
 
   return (
     <>

@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { useEffect } from "react"
 import datos from '../bd/jsonTickets.json'
 
+
 // creamos el contexto (la bolsa donde meter los estados)
 export const GlobalContext = createContext()
 
@@ -10,10 +11,8 @@ export const GlobalContext = createContext()
 // creamos el proveedor del contexto 
 
 export function GlobalContextProvider({ children }){
-
-    
-
-    const [dades, setDades] = useState([])
+    const tickets = datos
+    const [dades, setDades] = useState(tickets)   
 
     const [historias, setHistorias] = useState([])
     const [dataHistoria, setDataHistoria] = useState({
@@ -24,13 +23,9 @@ export function GlobalContextProvider({ children }){
         imagen: '',
         fecha: ''
     })
-    const tickets = datos
-    
 
-    useEffect(()=>{
-        setDades(tickets)
-        console.log(dades)
-    }, [])
+  
+    
 
     return(
         <GlobalContext.Provider value={{
