@@ -4,6 +4,7 @@ import Header from './componentes/Header'
 import Panel from './vistas/Panel'
 import Registro from './vistas/Registro'
 import Login from './vistas/login'
+import Form from './vistas/form'
 import { GlobalContextProvider } from './context/GlobalContext'
 
 
@@ -18,6 +19,7 @@ function App() {
                   <Route path='/' element={<Panel/>}/>
                   <Route path='/login' element={<Login/>}/>
                   <Route path='/registro' element={<Registro/>}/>
+                  <Route path='/form' element={<Form/>}/>
       </Routes>
     </GlobalContextProvider>
     
