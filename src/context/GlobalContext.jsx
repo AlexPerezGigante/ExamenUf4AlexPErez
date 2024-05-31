@@ -14,6 +14,7 @@ export function GlobalContextProvider({ children }){
 
     const [dadesPendientes, setDadesPendientes] = useState([])   
     const [dadesResueltos, setDadesResueltos] = useState([])
+    const [dades, setDades] = useState({})
     const urlPendientes = new URL('https://json-server-examenuf4-alex-perez.vercel.app/ticketsPendientes')
     const urlResueltos = new URL('https://json-server-examenuf4-alex-perez.vercel.app/ticketsResueltos')
     let ticketsPendientes = []
@@ -54,7 +55,8 @@ export function GlobalContextProvider({ children }){
     return(
         <GlobalContext.Provider value={{
             dadesPendientes, setDadesPendientes,
-            dadesResueltos, setDadesResueltos
+            dadesResueltos, setDadesResueltos,
+            dades, setDades
         }}>
             {children}
         </GlobalContext.Provider>

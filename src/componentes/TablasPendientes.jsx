@@ -1,10 +1,13 @@
 import { useContext } from "react"
 import { GlobalContext } from "../context/GlobalContext"
+import { useNavigate } from "react-router-dom"
 
 
 function TablasPendientes() {
     const {dadesPendientes, setDadesPendientes} = useContext(GlobalContext)
     const {dadesResueltas, setDadesResueltas} = useContext(GlobalContext)
+    const {dades, setDades} = useContext(GlobalContext)
+    const navigate = useNavigate()
 
     function borrarTicket(id){
         console.log(id)
@@ -53,7 +56,11 @@ function TablasPendientes() {
               borrarTicketPendiente()
               insertarTicketResuelto()
             }
-        
+            
+            function editarTicket(element){
+                setDades(element)
+                navigate('/form')
+            }
 
 
     return (
@@ -71,7 +78,7 @@ function TablasPendientes() {
                     <td>{element.descripcion}</td>
                     <td>{element.alumno}</td>
                     <td><button className="btn btn-success" title="Resolver ticket" onClick={()=>{resolverTicket(element)}}>Resolver</button></td>
-                    <td><button className="btn btn-warning" title="Añadir comentario"><i className="bi  bi-pencil" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                    <td><button className="btn btn-warning" title="Añadir comentario" onClick={()=>{editarTicket(element)}}><i className="bi  bi-pencil" ></i>
                     </button>
                     </td>
                     <td><button className="btn btn-info" title="Ver comentarios"><i className="bi bi-chat-left-text"></i>
