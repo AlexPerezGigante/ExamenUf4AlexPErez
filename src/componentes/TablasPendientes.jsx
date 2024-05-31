@@ -3,13 +3,12 @@ import { GlobalContext } from "../context/GlobalContext"
 
 
 function TablasPendientes() {
-    const {dades, setDades} = useContext(GlobalContext)
-    console.log(dades)
+    const {dadesPendientes, setDadesPendientes} = useContext(GlobalContext)
     return (
       <>
 <tbody>
     {
-        dades.ticketsPendientes.map((element)=>{
+        dadesPendientes.map((element)=>{
             return(
                 <tr key={element.codigo}>
                     <td>{element.codigo}</td>
