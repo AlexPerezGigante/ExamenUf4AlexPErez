@@ -10,8 +10,8 @@ function TablasResueltos() {
     {
         dadesResueltos.map((element)=>{
             return(
-                <tr key={element.codigo}>
-                    <td>{element.codigo}</td>
+                <tr key={element.id}>
+                    <td>{element.id}</td>
                     <td>{element.fecha}</td>
                     <td>{element.fecha_resuelto}</td>
                     <td>{element.aula}</td>

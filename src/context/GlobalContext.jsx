@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { useEffect } from "react"
-import datos from '../bd/jsonTickets.json'
+
 
 
 // creamos el contexto (la bolsa donde meter los estados)
