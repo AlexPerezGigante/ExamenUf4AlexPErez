@@ -30,8 +30,12 @@ export function GlobalContextProvider({ children }){
          
         ticketsResueltos = await ticketsR.json()
 
-        setDadesPendientes(ticketsPendientes)
-        setDadesResueltos(ticketsResueltos)
+        const ticketsROrdenados =  ticketsResueltos.sort((a,b)=> b.fecha - a.fecha)
+        const ticketsPOrdenados =  ticketsPendientes.sort((a,b)=> b.fecha - a.fecha)
+        
+
+        setDadesPendientes(ticketsPOrdenados)
+        setDadesResueltos(ticketsROrdenados)
 
     }
     
