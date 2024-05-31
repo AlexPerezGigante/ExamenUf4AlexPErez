@@ -1,12 +1,35 @@
+import { useNavigate } from "react-router-dom"
 import TablasPendientes from "../componentes/TablasPendientes"
 import TablasResueltos from "../componentes/TablasResueltos"
+import { useContext, useEffect } from "react"
+import { GlobalContext } from "../context/GlobalContext"
 
 function Panel() {
+    const {dades, setDades} = useContext(GlobalContext)
+    useEffect(()=>{
+        setDades({
+            id: "",
+          fecha: "",
+          aula: "",
+          grupo: "",
+          ordenador: "",
+          descripcion: "",
+          alumno: ""
+        })
+    }, [])
+    
 
+    const navigate = useNavigate()
+
+    function agregarTicket(){
+        console.log('agregar')
+        navigate('/form')
+    }
     return (
       <>
         <main className="container mt-5">
     <h1>Administración de incidencias</h1>
+    <button onClick={()=>{agregarTicket()}}>Añadir ticket</button>
     <h2 className="mt-5">Tickets pendientes</h2>
     <table className="table mt-4">
       <thead>

@@ -14,7 +14,16 @@ export function GlobalContextProvider({ children }){
 
     const [dadesPendientes, setDadesPendientes] = useState([])   
     const [dadesResueltos, setDadesResueltos] = useState([])
-    const [dades, setDades] = useState({})
+    const [dades, setDades] = useState({
+        id: "",
+      fecha: "",
+      aula: "",
+      grupo: "",
+      ordenador: "",
+      descripcion: "",
+      alumno: ""
+    })
+    
     const urlPendientes = new URL('https://json-server-examenuf4-alex-perez.vercel.app/ticketsPendientes')
     const urlResueltos = new URL('https://json-server-examenuf4-alex-perez.vercel.app/ticketsResueltos')
     let ticketsPendientes = []
