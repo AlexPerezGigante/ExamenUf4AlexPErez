@@ -10,16 +10,28 @@ function Form() {
         <div className="mb-3">
             <h2>{dades.id}</h2>
             <label htmlFor="exampleInputEmail1" className="form-label">Fecha</label>
-            <input type="date" className="form-control"/>
-            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+            <input type="date" className="form-control" value={dades.fecha}/>
+           
         </div>
         <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1"/>
+        <label htmlFor="exampleInputEmail1" className="form-label">Aula</label>
+            <input type="text" className="form-control" value={dades.aula}/>
         </div>
         <div className="mb-3 form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+        <label htmlFor="exampleInputEmail1" className="form-label">Grupo</label>
+            <input type="text" className="form-control" value={dades.grupo}/>
+        </div>
+        <div className="mb-3 form-check">
+        <label htmlFor="exampleInputEmail1" className="form-label">Ordenador</label>
+            <input type="text" className="form-control" value={dades.ordenador}/>
+        </div>
+        <div className="mb-3 form-check">
+        <label htmlFor="exampleInputEmail1" className="form-label">Descripcion</label>
+            <input type="text" className="form-control" value={dades.descripcion}/>
+        </div>
+        <div className="mb-3 form-check">
+        <label htmlFor="exampleInputEmail1" className="form-label">Alumno</label>
+            <input type="text" className="form-control" value={dades.alumno}/>
         </div>
         <button className="btn btn-primary">Submit</button>
 
