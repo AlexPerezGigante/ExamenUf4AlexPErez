@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './componentes/Header'
 import Panel from './vistas/Panel'
@@ -8,8 +9,12 @@ function App() {
 
   return (
     <>
-      <Header></Header>
-      <Panel></Panel>
+    <Header></Header>
+    <Routes>
+                <Route path='/' element={<Panel/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/registro' element={<Registro/>}/>
+    </Routes>
     </>
   )
 }

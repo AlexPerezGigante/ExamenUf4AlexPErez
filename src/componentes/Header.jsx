@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Header() {
 
     return (
@@ -6,9 +8,9 @@ function Header() {
             <div className="container-fluid">
             <a className="navbar-brand">Gestión de incidencias FPLLEFIA</a>
             <div>
-                <button className="btn btn-secondary ms-2">PANEL</button>
-                <button className="btn btn-secondary ms-2">LOGIN</button>
-                <button className="btn btn-secondary ms-2">REGISTRO</button>
+            <Link to="/" className="btn btn-secondary ms-2">PANEL</Link>
+            <Link to="/login" className="btn btn-secondary ms-2">LOGIN</Link>
+            <Link to="/registro" className="btn btn-secondary ms-2">REGISTRO</Link>
             </div>
             <div>
                 <span>administrador@fpllefia.com</span>
