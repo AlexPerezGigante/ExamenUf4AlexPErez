@@ -4,6 +4,7 @@ import { GlobalContext } from "../context/GlobalContext"
 
 function TablasPendientes() {
     const {dadesPendientes, setDadesPendientes} = useContext(GlobalContext)
+    const {dadesResueltas, setDadesResueltas} = useContext(GlobalContext)
 
     function borrarTicket(id){
         console.log(id)
@@ -23,6 +24,37 @@ function TablasPendientes() {
           borrarTicketPendiente()
         }
 
+        function resolverTicket(element){
+            async function borrarTicketPendiente(){
+                const url = new URL('https://json-server-examenuf4-alex-perez.vercel.app/ticketsPendientes')
+                const urlDelStr = 'https://json-server-examenuf4-alex-perez.vercel.app/ticketsPendientes/'+element.id
+                const urlDel = new URL(urlDelStr)
+                await fetch(urlDel, {
+                  method: 'DELETE',
+                })
+        
+                const usuarios = await fetch(url)
+                 
+                setDadesPendientes(await usuarios.json())
+              }
+
+              async function insertarTicketResuelto(){
+                const url = new URL('https://json-server-examenuf4-alex-perez.vercel.app/ticketsResueltos')
+                await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(element)
+                })
+
+                const usuarios = await fetch(url)
+         
+                setDadesResueltas(await usuarios.json())
+              }
+              borrarTicketPendiente()
+              insertarTicketResuelto()
+            }
+        
+
 
     return (
       <>
@@ -38,7 +70,7 @@ function TablasPendientes() {
                     <td>{element.ordenador}</td>
                     <td>{element.descripcion}</td>
                     <td>{element.alumno}</td>
-                    <td><button className="btn btn-success" title="Resolver ticket">Resolver</button></td>
+                    <td><button className="btn btn-success" title="Resolver ticket" onClick={()=>{resolverTicket(element)}}>Resolver</button></td>
                     <td><button className="btn btn-warning" title="Añadir comentario"><i className="bi  bi-pencil" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
                     </button>
                     </td>
